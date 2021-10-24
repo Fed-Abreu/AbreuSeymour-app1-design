@@ -8,12 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.application.Application;
+
 
 import java.util.Objects;
 
 
-public class ToDoList extends Application {
+public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws Exception {

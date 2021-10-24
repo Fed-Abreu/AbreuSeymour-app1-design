@@ -30,6 +30,6 @@ run {
     standardInput = System.in
 }
 
-    mainClassName = "baseline.ToDoList"
+    mainClassName = "baseline.Application"
 
 

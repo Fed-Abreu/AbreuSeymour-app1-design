@@ -1,4 +1,45 @@
 @startuml
 'https://plantuml.com/sequence-diagram
++Class Application{
 
++main():launch
+}
++Class ToDoListController{
+
+-Button AddListButton;
+-Button EditListButton;
+-Button RemoveListButton;
+-TextField ListText;
+-ListView<String> todoList
+
+}
+
+Class List{
+
+-String date;
+-String text;
+-String status;
+-String title;
+
++List(String date, String text, String status, String title):this.setVariables
+
+
++String getText():text
++void setText():this.text
+
++String getDate():date
++void setDate():this.date
+
++String getStatus():status
++void setText():this.status
+
++String getTitle():title
++void setText():this.Title
+
+
+}
+
+JavaApplication<--Application
+Application<--ToDoListController
+ToDoListController-- List
 @enduml
