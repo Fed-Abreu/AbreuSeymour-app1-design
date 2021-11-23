@@ -1,45 +1,69 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-+Class Application{
-
-+main():launch
+Class Application{
++void start(Stage stage)
++void main():launch
 }
-+Class ToDoListController{
 
--Button AddListButton;
--Button EditListButton;
--Button RemoveListButton;
--TextField ListText;
--ListView<String> todoList
+Class ToDoListController{
+-DatePicker addDate
+-TextField addDescription
+-Button buttonAdd
+-Button buttonAll
+-Button buttonCompleted
+-Button buttonDelete
+-Button buttonEdit
+-Button buttonIncomplete
+-TableColumn<?, ?> completedCol
+-TableColumn<?, ?> dateCol
+-TableColumn<?, ?> descriptionCol
+-MenuItem open
+-MenuItem saveAll
+-MenuItem saveList
+-TableView<?> tableView
+-Tab title
+-Button titlebutton
+-Button editTitle
+-TextField addTitle;
 
+ObservableList<List> data
+FilteredList<List> filteredList
+
+initialize(URL location, ResourceBundle resources)
+
+void addButtonClicked()
+void editButtonClicked()
+void removeButtonClicked()
++void onAll()
++void onCompleted()
++void onIncomplete()
++void onOpen()
++void onSaveAll()
++void onSaveList()
+void titleButtonClicked()
+void editTitleClicked ()
 }
 
 Class List{
 
--String date;
--String text;
--String status;
--String title;
+SimpleString description;
+BooleanProperty completed;
+SimpleObjectProperty<LocalDate> deadlineDate;
 
-+List(String date, String text, String status, String title):this.setVariables
+Task(String description1,  LocalDate date)
 
++ String getDescription()
++ void setDescription(String deadline1)
 
-+String getText():text
-+void setText():this.text
++ BooleanProperty getCompleted()
++ void setCompleted(boolean completed1)
 
-+String getDate():date
-+void setDate():this.date
-
-+String getStatus():status
-+void setText():this.status
-
-+String getTitle():title
-+void setText():this.Title
++ LocalDate getDeadlineDate()
++ String getDeadline()
++ void setDeadlineDate(LocalDate date)
 
 
 }
 
-JavaApplication<--Application
-Application<--ToDoListController
-ToDoListController-- List
+
 @enduml
